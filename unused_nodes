@@ -1,21 +1,37 @@
----
-- name: Configure and list LTM nodes without pager
-  hosts: your_f5_host
-  gather_facts: no
-  tasks:
-    - name: Disable pager
-      bigip_command:
-        commands:
-          - "tmsh modify cli preference pager disabled display-threshold 0"
-      register: pager_disabled_result
-      provider: "{{ providerA }}"
-
-    - name: List LTM nodes without pager
-      bigip_command:
-        commands:
-          - "tmsh show ltm node field-fmt all"
-      register: nodes_result
-      provider: "{{ providerA }}"
-
-    - debug:
-        var: nodes_result.stdout_lines
+ltm node ibemcipa85.xomdmz.net {
+    addr 10.159.4.134
+    cur-sessions 0
+    monitor-rule none
+    monitor-status unchecked
+    name ibemcipa85.xomdmz.net
+    serverside.bits-in 0
+    serverside.bits-out 0
+    serverside.cur-conns 0
+    serverside.max-conns 0
+    serverside.pkts-in 0
+    serverside.pkts-out 0
+    serverside.tot-conns 0
+    session-status enabled
+    status.availability-state unknown
+    status.enabled-state enabled
+    status.status-reason Node address does not have service checking enabled
+    tot-requests 0
+}
+ltm node ibemcipa86.xomdmz.net {
+    addr 10.159.4.132
+    cur-sessions 0
+    monitor-rule none
+    monitor-status unchecked
+    name ibemcipa86.xomdmz.net
+    serverside.bits-in 0
+    serverside.bits-out 0
+    serverside.cur-conns 0
+    serverside.max-conns 0
+    serverside.pkts-in 0
+    serverside.pkts-out 0
+    serverside.tot-conns 0
+    session-status enabled
+    status.availability-state unknown
+    status.enabled-state enabled
+    status.status-reason Node address does not have service checking enabled
+    tot-requests 0
